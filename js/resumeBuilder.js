@@ -282,7 +282,8 @@ function inName() {
 }
 
 
-function scrollPage() {
+function scrollPage(e) {
+	e.preventDefault();
 	var target = $("#"+$(this).attr("href").replace("#",""));
 
 	$("html, body").stop().animate({
