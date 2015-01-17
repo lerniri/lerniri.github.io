@@ -285,7 +285,7 @@ function inName() {
 function scrollPage() {
 	var target = $("#"+$(this).attr("href").replace("#",""));
 
-	$("html, body").animate({
+	$("html, body").stop().animate({
 		scrollTop: target.offset().top
 
 	}, 1000);
