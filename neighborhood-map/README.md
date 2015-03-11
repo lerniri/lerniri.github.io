@@ -19,7 +19,7 @@
 	<li>
 		Check top 5 wiki pages, containing info on your neighborhood.
 	</li>
-	<li>Browse bicycle routes, traffic, transit routes</li>
+	<li>Browse bicycle routes, traffic, public transport</li>
 </ul>
 
 <h3>Requirements</h3>
