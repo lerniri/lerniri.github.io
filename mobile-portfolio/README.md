@@ -10,7 +10,7 @@
 </ol>
 
 <h2>Part II - 60 FPS</h2> 
-<img src="perf/60fps_updatePositions_before.png">
+<img src="perf/60fps_updatePositions_before.png" width="200px">
 <h3>What was done ?</h3>
 <ol>
 	<li>updatePositions() (Line 501) - moved reference to document scrollTop property out of the loop, to stop forcing layout recalculation on each loop iteration </li>
