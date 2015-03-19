@@ -503,13 +503,12 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
+  /* optimization step 1 - move reference to document scrollTop property out of the loop
+    this should fix forcing of layout recalculation within the loop
+  */
+  var phase = document.body.scrollTop/1250;
   for (var i = 0; i < items.length; i++) {
-
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-
-    // transform
-    //items[i].style.transform = "translate3d("+items[i].basicLeft + 100 * phase + 'px'+",0,0)";
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    items[i].style.left = items[i].basicLeft + 100 * Math.sin( phase+(i % 5) )  + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -529,7 +528,8 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  //optimization step 2 - decrease number of generated pizzas
+  for (var i = 0; i < 50; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";

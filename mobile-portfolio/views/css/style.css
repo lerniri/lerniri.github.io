@@ -33,6 +33,13 @@ form {
   position: fixed;
   width: 256px;
   z-index: -1;
+  /* hack to move each pizza to its own layer 
+  should fix paint performance issues */
+  -webkit-transform: translatez(0);
+  -moz-transform: translatez(0);
+  -ms-transform: translatez(0);
+  -o-transform: translatez(0);
+  transform: translatez(0);
 }
 
 .randomPizzaContainer {

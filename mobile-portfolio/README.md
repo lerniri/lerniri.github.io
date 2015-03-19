@@ -1,3 +1,27 @@
+<h1>Optimization</h1>
+<h2>Part I - PageSpeed Insights get >= 90 score</h2>
+<h3>What was done ?</h3>
+<ol>
+	<li>Removed use of google font</li>
+	<li>Inlined css from style.css</li>
+	<li>Excluded print.css from CRP (adding media="print")</li>
+	<li>Added async calls for scripts (perfmatters.js, analytics.js)</li>
+	<li>Optimized images (compress, resize)</li>
+</ol>
+
+<h2>Part II - 60 FPS</h2> 
+<img src="perf/60fps_updatePositions_before.png">
+<h3>What was done ?</h3>
+<ol>
+	<li>updatePositions() (Line 501) - moved reference to document scrollTop property out of the loop, to stop forcing layout recalculation on each loop iteration </li>
+	<li>Line 528 - Descreased amout of generated pizzas</li>
+	<li>Optimized pizza img (compressed, resized) </li>
+	<li>style.css - added translateZ(0) property to pizzas, to force browser create new layer for each. Improved Paint performance</li>
+</ol>
+
+
+
+
 ## Website Performance Optimization portfolio project
 
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
