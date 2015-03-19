@@ -1,6 +1,7 @@
 <h1>Optimization</h1>
 <h2>Part I - PageSpeed Insights get >= 90 score</h2>
 <h3>What was done ?</h3>
+
 <ol>
 	<li>Removed use of google font</li>
 	<li>Inlined css from style.css</li>
@@ -10,7 +11,8 @@
 </ol>
 
 <h2>Part II - 60 FPS</h2> 
-<img src="perf/60fps_updatePositions_before.png" width="200px">
+<strong>Before</strong> <br>
+<img src="perf/60fps_updatePositions_before.png" width="500px">
 <h3>What was done ?</h3>
 <ol>
 	<li>updatePositions() (Line 501) - moved reference to document scrollTop property out of the loop, to stop forcing layout recalculation on each loop iteration </li>
@@ -18,6 +20,8 @@
 	<li>Optimized pizza img (compressed, resized) </li>
 	<li>style.css - added translateZ(0) property to pizzas, to force browser create new layer for each. Improved Paint performance</li>
 </ol>
+<strong>After</strong><br>
+<img src="perf/60fps_translateZ_hack.png" width="500px">
 
 
 
