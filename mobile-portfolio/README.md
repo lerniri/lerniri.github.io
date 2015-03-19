@@ -1,4 +1,4 @@
-<h1>Optimization</h1>
+<h1>Optimization Steps</h1>
 <h2>Part I - PageSpeed Insights get >= 90 score</h2>
 <h3>What was done ?</h3>
 
