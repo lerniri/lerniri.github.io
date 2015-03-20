@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 <h1> Project 4 - Web Optimization </h1> 
 Link to demo <a href="http://lerniri.github.io/mobile-portfolio">http://lerniri.github.io/mobile-portfolio</a>
 <h2>Solution Steps</h2>
 <h3>Part I - PageSpeed Insights get >= 90 score</h3>
 <h4>What was done ?</h4>
+=======
+<h1>Optimization Steps</h1>
+<h2>Part I - PageSpeed Insights get >= 90 score</h2>
+<h3>What was done ?</h3>
+
 <ol>
 	<li>Removed use of google font</li>
 	<li>Inlined css from style.css</li>
@@ -15,6 +21,12 @@ Link to demo <a href="http://lerniri.github.io/mobile-portfolio">http://lerniri.
 <strong>Before</strong> <br>
 <img src="perf/60fps_updatePositions_before.png" width="500px">
 <h4>What was done ?</h4>
+=======
+<h2>Part II - 60 FPS</h2> 
+<strong>Before</strong> <br>
+<img src="perf/60fps_updatePositions_before.png" width="500px">
+<h3>What was done ?</h3>
+
 <ol>
 	<li>updatePositions() (Line 501) - moved reference to document scrollTop property out of the loop, to stop forcing layout recalculation on each loop iteration </li>
 	<li>Line 528 - Descreased amout of generated pizzas</li>
