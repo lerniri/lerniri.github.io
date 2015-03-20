@@ -1,6 +1,8 @@
-<h1>Optimization</h1>
-<h2>Part I - PageSpeed Insights get >= 90 score</h2>
-<h3>What was done ?</h3>
+<h1> Project 4 - Web Optimization </h1> 
+Link to demo <a href="http://lerniri.github.io/mobile-portfolio">http://lerniri.github.io/mobile-portfolio</a>
+<h2>Solution Steps</h2>
+<h3>Part I - PageSpeed Insights get >= 90 score</h3>
+<h4>What was done ?</h4>
 <ol>
 	<li>Removed use of google font</li>
 	<li>Inlined css from style.css</li>
@@ -9,18 +11,25 @@
 	<li>Optimized images (compress, resize)</li>
 </ol>
 
-<h2>Part II - 60 FPS</h2> 
-<img src="perf/60fps_updatePositions_before.png" width="200px">
-<h3>What was done ?</h3>
+<h3>Part II - 60 FPS</h3> 
+<strong>Before</strong> <br>
+<img src="perf/60fps_updatePositions_before.png" width="500px">
+<h4>What was done ?</h4>
 <ol>
 	<li>updatePositions() (Line 501) - moved reference to document scrollTop property out of the loop, to stop forcing layout recalculation on each loop iteration </li>
 	<li>Line 528 - Descreased amout of generated pizzas</li>
 	<li>Optimized pizza img (compressed, resized) </li>
 	<li>style.css - added translateZ(0) property to pizzas, to force browser create new layer for each. Improved Paint performance</li>
 </ol>
+<strong>After</strong><br>
+<img src="perf/60fps_translateZ_hack.png" width="500px">
 
-
-
+<h3>Part III - Pizza resize optimiztion</h3>
+<strong>Before - Time to resize pizzas: 632.1139999781735ms</strong>
+<h4>What was done ? </h4>
+<p>resizePizzas function was updated - all sizes calculation/management has been delegated to css. 
+Now function just adds appropriate css class depending on the chosen size and updates html </p>
+<strong>After - </strong>
 
 ## Website Performance Optimization portfolio project
 
