@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <h1> Project 4 - Web Optimization </h1> 
 Link to demo <a href="http://lerniri.github.io/mobile-portfolio">http://lerniri.github.io/mobile-portfolio</a>
 <h2>Solution Steps</h2>
@@ -41,7 +40,7 @@ Link to demo <a href="http://lerniri.github.io/mobile-portfolio">http://lerniri.
 <h4>What was done ? </h4>
 <p>resizePizzas function was updated - all sizes calculation/management has been delegated to css. 
 Now function just adds appropriate css class depending on the chosen size and updates html </p>
-<strong>After - </strong>
+<strong>After - Time to resize pizzas: 1.2060000444762409ms</strong>
 
 ## Website Performance Optimization portfolio project
 
