@@ -1,5 +1,6 @@
 <h1> Project 4 - Web Optimization </h1> 
-Link to demo <a href="http://lerniri.github.io/mobile-portfolio">http://lerniri.github.io/mobile-portfolio</a>
+
+<p>Link to demo <a href="http://lerniri.github.io/mobile-portfolio">http://lerniri.github.io/mobile-portfolio</a> </p>
 =======
 <h2>Optimization Steps</h2>
 <h3>Part I - PageSpeed Insights get >= 90 score</h3>
