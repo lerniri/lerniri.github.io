@@ -72,7 +72,7 @@
 						<span>So many places to see around! <br> Please, be patient!</span>
 					</div>
 
-					<span class="places-prev nav-arrows" data-bind="click: scrollPlacesList(-1)"><img src="_build/img/prev.png"></span>
+					<span class="places-prev nav-arrows" data-bind="click: scrollPlacesList(-1)"><img src="img/prev.png"></span>
 					<ul data-bind="foreach: nearbyPlaces">
 
 						<!-- ko if: showItem -->
@@ -105,7 +105,7 @@
 						</li>
 						<!-- /ko -->
 					</ul>
-					<span class="places-next nav-arrows" data-bind="click: scrollPlacesList(1)"><img src="_build/img/next.png"></span>
+					<span class="places-next nav-arrows" data-bind="click: scrollPlacesList(1)"><img src="img/next.png"></span>
 					<span class="search-result" data-bind="visible: noPlacesToShow || nearbyPlaces().length <= 0">Sorry, nothing found.</span>
 					<span class="error-msg" data-bind="visible: errorMsg() !== '', text: errorMsg"></span>
 
