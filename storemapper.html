@@ -1,62 +1,104 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
-    
-    
-    <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '928043153971091',
-      xfbml      : true,
-      version    : 'v2.6'
-    });
+<head>
+	<title>Storemapper Widget (Dev)</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
 
-    // ADD ADDITIONAL FACEBOOK CODE HERE
-  };
+	<div class="wrap">
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
+
+		<!-- div id='storemapper' style='width:100%;'><p>Store Locator is loading from <a href='https://www.storemapper.co'>Storemapper store locator software</a>...</p></div>
+		<script data-storemapper-start='2016,07,27' data-storemapper-id='2486'>(function() {var script = document.createElement('script');script.type  = 'text/javascript';script.async = true;script.src = '/js/widget.js'; var entry = document.getElementsByTagName('script')[0];entry.parentNode.insertBefore(script, entry);}());</script-->
+
+		<!-- div id='storemapper' style='width:100%;'><p>Store Locator is loading from <a href='https://www.storemapper.co'>Storemapper store locator software</a>...</p></div>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&libraries=places&key=AIzaSyAAHeFP1hNAWyPcDlIxhoWRpUYf3E93H74&language=he&region=IL"></script>
+<script data-storemapper-start='2016,07,27' data-storemapper-id='3197'>(function() {var script = document.createElement('script');script.type  = 'text/javascript';script.async = true;script.src = document.location.protocol + '//www.storemapper.co/js/widget.js'; var entry = document.getElementsByTagName('script')[0];entry.parentNode.insertBefore(script, entry);}());</script>
+		
+		
+	</div-->
+	
+	
+	<div id='storemapper' style='width:100%;'><p>Store Locator is loading from <a href='https://www.storemapper.co'>Storemapper store locator software</a>...</p></div>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&libraries=places&key=AIzaSyAAHeFP1hNAWyPcDlIxhoWRpUYf3E93H74&language=he&region=IL"></script>
+<script data-storemapper-start='2016,08,16' data-storemapper-id='3258'>(function() {var script = document.createElement('script');script.type  = 'text/javascript';script.async = true;script.src = '/js/widget.js'; var entry = document.getElementsByTagName('script')[0];entry.parentNode.insertBefore(script, entry);}());</script>
+
+
+	<!-- button id="show_map">Show Map</button -->
+
+	<!--section class="site-content">
+
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rutrum purus sed pretium luctus. Proin at tincidunt nunc, sit amet dignissim purus. Pellentesque dignissim metus eu urna suscipit tincidunt. Integer id dui rhoncus, bibendum leo nec, dapibus turpis. Fusce mi odio, pharetra vel tellus non, gravida venenatis nisi. Nam mauris est, tempor eget arcu at, ultricies molestie est. Nulla quis scelerisque nulla. Etiam felis nisl, gravida a ultricies id, gravida eget nisi. Nam nulla enim, convallis a efficitur nec, luctus sit amet diam. Proin finibus quam ac quam pellentesque, sed semper enim egestas. Curabitur porta ac mi nec gravida. Phasellus dignissim venenatis odio, sit amet efficitur erat.
+
+Sed blandit lorem id turpis sodales, vel mollis orci semper. In in purus rhoncus, vehicula ipsum non, finibus lacus. Aenean laoreet condimentum volutpat. Suspendisse a neque ante. Nullam nibh lectus, vestibulum mollis eleifend ut, placerat ac sem. Aenean maximus venenatis tortor non commodo. Duis neque erat, semper vel dolor in, porttitor sodales erat. Quisque in dui dapibus sem porttitor blandit sit amet semper est.
+
+Mauris elit urna, lacinia et lorem eget, facilisis consequat est. Vestibulum id orci in dolor facilisis egestas. Ut luctus luctus aliquet. Integer blandit, felis non venenatis gravida, massa justo congue nibh, eu facilisis sem ipsum quis lectus. Maecenas rutrum volutpat tincidunt. Sed sapien mauris, tempus a suscipit nec, auctor ac sapien. Vestibulum egestas lacus non tempor varius. Pellentesque varius eu mi nec pellentesque. Suspendisse orci nisi, tristique non lacus at, scelerisque tempor enim. Praesent feugiat, lorem nec placerat posuere, erat purus tincidunt purus, eget semper urna elit quis orci.
+
+Sed facilisis leo sed dui facilisis, nec fermentum quam placerat. Maecenas venenatis fringilla diam, et ornare neque venenatis id. Proin volutpat nisl eu magna efficitur vehicula. Duis tincidunt lorem ut mi vestibulum ornare. Pellentesque in tortor fermentum, ornare nulla quis, condimentum ligula. Maecenas quis semper felis. In a imperdiet odio. Mauris posuere tellus sem, id laoreet ex pellentesque a. Pellentesque ut auctor arcu. Donec lobortis ac tellus vitae dictum. Morbi eget interdum justo, in egestas urna. Integer consequat sed lacus a tristique. Ut consequat libero mollis metus hendrerit vulputate. Mauris vitae interdum dui, eget interdum libero. Vestibulum sodales mi sit amet quam condimentum dignissim. In ornare non ipsum id egestas.
+
+
+		</p>
+
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rutrum purus sed pretium luctus. Proin at tincidunt nunc, sit amet dignissim purus. Pellentesque dignissim metus eu urna suscipit tincidunt. Integer id dui rhoncus, bibendum leo nec, dapibus turpis. Fusce mi odio, pharetra vel tellus non, gravida venenatis nisi. Nam mauris est, tempor eget arcu at, ultricies molestie est. Nulla quis scelerisque nulla. Etiam felis nisl, gravida a ultricies id, gravida eget nisi. Nam nulla enim, convallis a efficitur nec, luctus sit amet diam. Proin finibus quam ac quam pellentesque, sed semper enim egestas. Curabitur porta ac mi nec gravida. Phasellus dignissim venenatis odio, sit amet efficitur erat.
+
+Sed blandit lorem id turpis sodales, vel mollis orci semper. In in purus rhoncus, vehicula ipsum non, finibus lacus. Aenean laoreet condimentum volutpat. Suspendisse a neque ante. Nullam nibh lectus, vestibulum mollis eleifend ut, placerat ac sem. Aenean maximus venenatis tortor non commodo. Duis neque erat, semper vel dolor in, porttitor sodales erat. Quisque in dui dapibus sem porttitor blandit sit amet semper est.
+
+Mauris elit urna, lacinia et lorem eget, facilisis consequat est. Vestibulum id orci in dolor facilisis egestas. Ut luctus luctus aliquet. Integer blandit, felis non venenatis gravida, massa justo congue nibh, eu facilisis sem ipsum quis lectus. Maecenas rutrum volutpat tincidunt. Sed sapien mauris, tempus a suscipit nec, auctor ac sapien. Vestibulum egestas lacus non tempor varius. Pellentesque varius eu mi nec pellentesque. Suspendisse orci nisi, tristique non lacus at, scelerisque tempor enim. Praesent feugiat, lorem nec placerat posuere, erat purus tincidunt purus, eget semper urna elit quis orci.
+
+Sed facilisis leo sed dui facilisis, nec fermentum quam placerat. Maecenas venenatis fringilla diam, et ornare neque venenatis id. Proin volutpat nisl eu magna efficitur vehicula. Duis tincidunt lorem ut mi vestibulum ornare. Pellentesque in tortor fermentum, ornare nulla quis, condimentum ligula. Maecenas quis semper felis. In a imperdiet odio. Mauris posuere tellus sem, id laoreet ex pellentesque a. Pellentesque ut auctor arcu. Donec lobortis ac tellus vitae dictum. Morbi eget interdum justo, in egestas urna. Integer consequat sed lacus a tristique. Ut consequat libero mollis metus hendrerit vulputate. Mauris vitae interdum dui, eget interdum libero. Vestibulum sodales mi sit amet quam condimentum dignissim. In ornare non ipsum id egestas.
+
+			
+		</p>
+
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rutrum purus sed pretium luctus. Proin at tincidunt nunc, sit amet dignissim purus. Pellentesque dignissim metus eu urna suscipit tincidunt. Integer id dui rhoncus, bibendum leo nec, dapibus turpis. Fusce mi odio, pharetra vel tellus non, gravida venenatis nisi. Nam mauris est, tempor eget arcu at, ultricies molestie est. Nulla quis scelerisque nulla. Etiam felis nisl, gravida a ultricies id, gravida eget nisi. Nam nulla enim, convallis a efficitur nec, luctus sit amet diam. Proin finibus quam ac quam pellentesque, sed semper enim egestas. Curabitur porta ac mi nec gravida. Phasellus dignissim venenatis odio, sit amet efficitur erat.
+
+Sed blandit lorem id turpis sodales, vel mollis orci semper. In in purus rhoncus, vehicula ipsum non, finibus lacus. Aenean laoreet condimentum volutpat. Suspendisse a neque ante. Nullam nibh lectus, vestibulum mollis eleifend ut, placerat ac sem. Aenean maximus venenatis tortor non commodo. Duis neque erat, semper vel dolor in, porttitor sodales erat. Quisque in dui dapibus sem porttitor blandit sit amet semper est.
+
+Mauris elit urna, lacinia et lorem eget, facilisis consequat est. Vestibulum id orci in dolor facilisis egestas. Ut luctus luctus aliquet. Integer blandit, felis non venenatis gravida, massa justo congue nibh, eu facilisis sem ipsum quis lectus. Maecenas rutrum volutpat tincidunt. Sed sapien mauris, tempus a suscipit nec, auctor ac sapien. Vestibulum egestas lacus non tempor varius. Pellentesque varius eu mi nec pellentesque. Suspendisse orci nisi, tristique non lacus at, scelerisque tempor enim. Praesent feugiat, lorem nec placerat posuere, erat purus tincidunt purus, eget semper urna elit quis orci.
+
+Sed facilisis leo sed dui facilisis, nec fermentum quam placerat. Maecenas venenatis fringilla diam, et ornare neque venenatis id. Proin volutpat nisl eu magna efficitur vehicula. Duis tincidunt lorem ut mi vestibulum ornare. Pellentesque in tortor fermentum, ornare nulla quis, condimentum ligula. Maecenas quis semper felis. In a imperdiet odio. Mauris posuere tellus sem, id laoreet ex pellentesque a. Pellentesque ut auctor arcu. Donec lobortis ac tellus vitae dictum. Morbi eget interdum justo, in egestas urna. Integer consequat sed lacus a tristique. Ut consequat libero mollis metus hendrerit vulputate. Mauris vitae interdum dui, eget interdum libero. Vestibulum sodales mi sit amet quam condimentum dignissim. In ornare non ipsum id egestas.
+
+			
+		</p>
+
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rutrum purus sed pretium luctus. Proin at tincidunt nunc, sit amet dignissim purus. Pellentesque dignissim metus eu urna suscipit tincidunt. Integer id dui rhoncus, bibendum leo nec, dapibus turpis. Fusce mi odio, pharetra vel tellus non, gravida venenatis nisi. Nam mauris est, tempor eget arcu at, ultricies molestie est. Nulla quis scelerisque nulla. Etiam felis nisl, gravida a ultricies id, gravida eget nisi. Nam nulla enim, convallis a efficitur nec, luctus sit amet diam. Proin finibus quam ac quam pellentesque, sed semper enim egestas. Curabitur porta ac mi nec gravida. Phasellus dignissim venenatis odio, sit amet efficitur erat.
+
+Sed blandit lorem id turpis sodales, vel mollis orci semper. In in purus rhoncus, vehicula ipsum non, finibus lacus. Aenean laoreet condimentum volutpat. Suspendisse a neque ante. Nullam nibh lectus, vestibulum mollis eleifend ut, placerat ac sem. Aenean maximus venenatis tortor non commodo. Duis neque erat, semper vel dolor in, porttitor sodales erat. Quisque in dui dapibus sem porttitor blandit sit amet semper est.
+
+Mauris elit urna, lacinia et lorem eget, facilisis consequat est. Vestibulum id orci in dolor facilisis egestas. Ut luctus luctus aliquet. Integer blandit, felis non venenatis gravida, massa justo congue nibh, eu facilisis sem ipsum quis lectus. Maecenas rutrum volutpat tincidunt. Sed sapien mauris, tempus a suscipit nec, auctor ac sapien. Vestibulum egestas lacus non tempor varius. Pellentesque varius eu mi nec pellentesque. Suspendisse orci nisi, tristique non lacus at, scelerisque tempor enim. Praesent feugiat, lorem nec placerat posuere, erat purus tincidunt purus, eget semper urna elit quis orci.
+
+Sed facilisis leo sed dui facilisis, nec fermentum quam placerat. Maecenas venenatis fringilla diam, et ornare neque venenatis id. Proin volutpat nisl eu magna efficitur vehicula. Duis tincidunt lorem ut mi vestibulum ornare. Pellentesque in tortor fermentum, ornare nulla quis, condimentum ligula. Maecenas quis semper felis. In a imperdiet odio. Mauris posuere tellus sem, id laoreet ex pellentesque a. Pellentesque ut auctor arcu. Donec lobortis ac tellus vitae dictum. Morbi eget interdum justo, in egestas urna. Integer consequat sed lacus a tristique. Ut consequat libero mollis metus hendrerit vulputate. Mauris vitae interdum dui, eget interdum libero. Vestibulum sodales mi sit amet quam condimentum dignissim. In ornare non ipsum id egestas.
+
+			
+		</p>
+		
+
+
+	</section-->
+
+		
+
+		<div id='storemapper' style='width:100%;'><p>Store Locator is loading from <a href='https://www.storemapper.co'>Storemapper store locator</a>...</p></div><script data-storemapper-start='2015,11,22' data-storemapper-id='2486'>(function() {var script = document.createElement('script');script.type  = 'text/javascript';script.async = true;script.src = document.location.protocol + '//www.storemapper.co/js/widget.js'; var entry = document.getElementsByTagName('script')[0];entry.parentNode.insertBefore(script, entry);}());</script>
+	
+</body>
+<script type="text/javascript" src="/storemapper/js/custom.js"></script>
+<script type="text/javascript">
+		
+		function storemapper_callback() {
+
+			adjustStoremapper();	
+						
+		}		
+
+
 </script>
-    
-  </head>
-  <body>
-
-    <h1 id="fb-welcome"></h1>
-    
-  </body>
-  
-  <script>
-    
-    // Place following code after FB.init call.
-
-function onLogin(response) {
-  if (response.status == 'connected') {
-    FB.api('/me?fields=first_name', function(data) {
-      var welcomeBlock = document.getElementById('fb-welcome');
-      welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
-    });
-  }
-}
-
-FB.getLoginStatus(function(response) {
-  // Check login status on load, and if the user is
-  // already logged in, go directly to the welcome message.
-  if (response.status == 'connected') {
-    onLogin(response);
-  } else {
-    // Otherwise, show Login dialog first.
-    FB.login(function(response) {
-      onLogin(response);
-    }, {scope: 'user_friends, email'});
-  }
-});
-    
-  </script>
-
 </html>
+
+
