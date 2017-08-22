@@ -1,0 +1,36 @@
+<header class="header">
+    <h1 class="title">МОИ КЛИЕНТЫ</h1>
+    <form class="search-client">
+        <input type="text" name="" ng-model="search" placeholder="Искать по имени....">
+        <i class="fa fa-search" aria-hidden="true"></i>            
+    </form>
+    <button>
+        <a href="#/add-client"> <i class="fa fa-user-plus add-button" aria-hidden="true"></i></a>  
+    </button>
+    
+</header>
+
+<div class="main">
+    
+    <nav ng-controller="CategoryController as catCtrl">
+
+        <ul class="category-tabs-nav" ng-show="catCtrl.categories.length > 0">
+            <li ng-repeat="category in catCtrl.categories">{{category.name}}</li>
+        </ul>
+    </nav>
+
+    <div class="clients-list-wrapper" ng-controller="ClientsListController as clientsList">
+      
+        <ul class="clients-list">             
+            <li class="client-item" ng-repeat="client in clientsList.clients | filter: {name: search} | orderBy: 'name'">
+              <a href="#/contact/{{client.id}}">                
+                <img ng-src="{{client.img}}">
+                <h1>{{client.name}}</h1>
+                <h5>{{client.tel}}</h5>
+              </a>  
+            </li>
+        </ul>
+    </div>
+
+
+</div>

@@ -1,0 +1,76 @@
+<div class="client-card-wrapper" ng-controller="ClientCardController as clientCard">
+	<nav class="subpage-topbar">
+		<a href="#!" class="btn-back"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+		<h2>КЛИЕНТ</h2>
+		<a href="#!/contact-edit" class="btn-edit-contact"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>	
+	</nav>
+
+	<div class="main">
+		<div class="contact-header clearfix">
+			<img src="http://unsplash.it/100/100">
+			<div class="basic-info">
+				<h1>{{clientCard.client.name}}</h1>
+				<h5>{{clientCard.client.phone}}</h5>
+				<div class="hair-info">
+					<p>Натуральный тон: {{clientCard.client.natural_tone}}</p>
+					<p>% седины: {{clientCard.client.grey_perc}}</p>
+				</div>	
+			</div>
+			
+			<div class="reach-client">
+				<a href=""><i class="fa fa-phone" aria-hidden="true"></i></a>
+				<a href=""><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+			</div>
+		</div>
+
+		<div class="tab-wrapper"  ng-controller="TabsController">
+			<ul class="tabs clearfix">
+				<li ng-class="{'active': (selected == '1')}" ng-click='selected=1'>
+		      		Информация
+		    	</li>
+		    	<li ng-class="{'active': (selected == '2')}" ng-click='selected=2'>
+		      		Окрашивания
+		    	</li>
+			</ul>
+
+			<div class='tab-content'>
+			    <div class="general-info" ng-show='selected == 1'>
+			       	<p><span>Адрес: </span>{{clientCard.client.address}}</p>
+				    <p><span>FB: </span>{{clientCard.client.fb_page}}</p>
+				    <p><span>Комментарии: </span>{{clientCard.client.other}}</p>
+		
+			    </div>
+			    <div class="color-list-wrapper" ng-show='selected == 2'>
+			    	<form class="filter">
+			    	<!-- 	<label>Период:</label>
+			    		<input type="date" name="from" id="fromdate"> -
+			    		<input type="date" name="to" id="todate">
+			    	 -->	<!-- <select>
+			    			<option>Обмре</option>
+			    			<option>Корни</option>
+			    		</select> -->
+			    		<input type="text" name="" placeholder="Искать" ng-model="colouring" >	
+			    		<i class="fa fa-search" aria-hidden="true"></i>
+			    	</form>
+			    	<a href="#!/color-add" class="btn-add-color"><i class="fa fa-plus" aria-hidden="true"></i></a>	
+
+			    	<ul class="coloringList" ng-controller="ColorListController as coloringList">
+			    		<li ng-repeat="colouring in coloringList.colouring | filter: {type: colouring} | orderBy: 'date'"><a href="#/colouring/{{colouring.id}}/{{clientCard.client.name}}">
+			    			<p> {{colouring.type}} </p>
+			    			<span>{{colouring.date}}</span>		
+			    		</a></li>
+			    	</ul>
+
+			    </div>
+			</div>
+		
+
+		</div>
+		
+
+	</div>
+
+
+
+</div>
+	

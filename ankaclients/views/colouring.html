@@ -1,0 +1,49 @@
+<div class="color-card-wrapper" ng-controller="ColorCardController as colorCtrl">
+	
+	<nav class="subpage-topbar">
+		<a href="#!" class="btn-back"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+		<h2>ОКРАШИВАНИЯ</h2>
+		<h3>{{colorCtrl.client_name}}</h3>
+		<a href="#!" class="btn-home"><i class="fa fa-home" aria-hidden="true"></i></a>
+			
+	</nav>
+
+	<header class="color-header clearfix">
+		
+		<img src="http://unsplash.it/100/100">
+		<h1>{{colorCtrl.colouring.type}}</h1>
+		<span>{{colorCtrl.colouring.date}}</span>
+		<a href="#!/color-edit" class="btn-edit-color"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+	</header>
+
+	<div class="main">
+
+		<div class="color-info">
+			<span>Краска<i class="fa fa-paint-brush" aria-hidden="true"></i></span>
+			<ul>
+				<li ng-repeat="color in colorCtrl.colouring.colouring_data.colors">
+					<p><strong>Название краски: </strong>{{color.name}}</p>
+					<p><strong>№: </strong>{{color.color_num}}</p>
+					<p><strong>вес (гр): </strong>{{color.color_weight_g}}</p>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="oxidant-info">
+			<span>Окислитель<i class="fa fa-flask" aria-hidden="true"></i></span>	
+
+			<!-- coloringData: {
+				oxid: {	name: "oxid name" , num: 6, perc: 10 }, 
+				color: [{ name: "Wella 1", num: 8.6, weight_gr: 40 },
+					{ name: "Wella 2", num: 6, weight_gr: 30 }]
+			}	 -->
+
+			<p><strong>%: </strong> {{colorCtrl.colouring.colouring_data.oxid_perc}}</p>
+			<p><strong>вес (гр): </strong>{{colorCtrl.colouring.colouring_data.oxid_weight_g}}</p>
+		</div>
+		
+	
+	</div>
+
+
+</div>
