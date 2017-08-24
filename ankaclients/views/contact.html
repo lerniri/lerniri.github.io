@@ -1,11 +1,12 @@
 <div class="client-card-wrapper" ng-controller="ClientCardController as clientCard">
 	<nav class="subpage-topbar">
-		<a href="#!" class="btn-back"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-		<h2>КЛИЕНТ</h2>
-		<a href="#!/contact-edit" class="btn-edit-contact"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>	
+		<h2 class="subpage-heading">КЛИЕНТ</h2>
+		<a href="#!" class="btn-back align-left"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+		
+		<a href="#!/contact-edit" class="btn-edit-contact align-right"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>	
 	</nav>
 
-	<div class="main">
+	<div class="main subpage-content">
 		<div class="contact-header clearfix">
 			<img src="http://unsplash.it/100/100">
 			<div class="basic-info">
@@ -52,9 +53,9 @@
 			    		<input type="text" name="" placeholder="Искать" ng-model="colouring" >	
 			    		<i class="fa fa-search" aria-hidden="true"></i>
 			    	</form>
-			    	<a href="#!/color-add" class="btn-add-color"><i class="fa fa-plus" aria-hidden="true"></i></a>	
+			    	<a href="#/add-colouring/{{clientCard.client.id}}" class="btn-add-colouring btn-right"><i class="fa fa-paint-brush" aria-hidden="true"></i></a>	
 
-			    	<ul class="coloringList" ng-controller="ColorListController as coloringList">
+			    	<ul class="coloring-list" ng-controller="ColorListController as coloringList">
 			    		<li ng-repeat="colouring in coloringList.colouring | filter: {type: colouring} | orderBy: 'date'"><a href="#/colouring/{{colouring.id}}/{{clientCard.client.name}}">
 			    			<p> {{colouring.type}} </p>
 			    			<span>{{colouring.date}}</span>		

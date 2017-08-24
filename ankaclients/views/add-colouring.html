@@ -1,0 +1,48 @@
+<div class="add-colouring-wrapper subpage-wrapper" ng-controller="AddColouringController as addColCtrl">
+	<nav class="subpage-topbar">
+		<h3 class="subpage-heading">НОВОЕ ОКРАШИВАНИЕ</h3>
+		<a href="#" class="btn-back align-left"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+		<h4>{{addColCtrl.client_name}}</h4>
+		<a href="#/" class="btn-save align-right"><i class="fa fa-check" aria-hidden="true"></i></a>
+	</nav>
+	<div class="subpage-content">
+
+		<!-- <input type="number" name="price"> -->
+		<div class="color-info">
+			<span class="color-info-heading">Краска<i class="fa fa-paint-brush" aria-hidden="true"></i></span>
+			<ul>
+				<li class="chem-element add-color"></li> 				
+			</ul>
+		</div>
+
+		<div class="oxidant-info">
+			<span class="oxidant-info-heading">Окислитель<i class="fa fa-flask" aria-hidden="true"></i></span>
+			<div class="chem-element add-oxidant"></div>	
+		</div>		
+
+
+	</div>	
+
+	<div class="modal-wrapper">
+		<div class="modal-inner	">			
+			<form class="add-colouring-form">
+
+				<select class="color-name">
+					<option>wella1</option>
+					<option>wella2</option>
+				</select>
+
+				<div ng-controller="rangeController">
+					<input type="number" name="color-number" placeholder="Номер краски">
+					<p>Вес (гр)</p>
+					<rzslider class="custom-slider" rz-slider-model="weightSlider.value"></rzslider>
+					<p>%</p>
+					<rzslider class="custom-slider" rz-slider-model="percSlider.value"></rzslider>
+				</div>
+				<a href="" class="btn-circle btn-add"></a>
+			</form>
+		</div>		
+	</div>
+
+</div>
+
