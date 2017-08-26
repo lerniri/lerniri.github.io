@@ -12,20 +12,35 @@
 		<div class="color-info">
 			<span class="color-info-heading">Краска<i class="fa fa-paint-brush" aria-hidden="true"></i></span>
 			<ul>
+				<li class="chem-element" ng-repeat="color in colors">
+						<!-- <p><strong>Название краски: </strong>{{color.name}}</p> -->
+						<!-- <p><strong>№: </strong>{{color.color_num}}</p>
+						<p><strong>вес (гр): </strong>{{color.color_weight_g}}</p> -->
+						<span class="top">{{color.num}}N</span>
+						<span class="bottom">{{color.weight|weight_g}}</span>
+				</li>
 				<li class="chem-element add-color" ng-click="addColor()"></li> 				
 			</ul>
 		</div>
 
 		<div class="oxidant-info">
 			<span class="oxidant-info-heading">Окислитель<i class="fa fa-flask" aria-hidden="true"></i></span>
-			<div class="chem-element add-oxidant" ng-click="addOxidant()"></div>	
+			<ul>
+				<li class="chem-element" ng-repeat="oxid in oxids">
+					<span class="top">{{oxid.perc}}%</span>
+					<span class="bottom">{{oxid.weight|weight_g }}</span>	
+				</li>
+				<li class="chem-element add-oxidant" ng-click="addOxidant()"></li>
+			</ul>
+			
+				
 		</div>		
 
 
 	</div>	
 
-	<!-- add color form -->
-	<div class="modal-wrapper" ng-class="{'active':(modalOpened)}">
+	<!-- add color form  @TODO: move to directive -->
+	<div class="modal-wrapper" ng-class="{'active':(colModalOpened)}">
 		<div class="modal-inner	">			
 			<form class="add-colouring-form" name="colorForm">
 				<select class="color-name" ng-model="colorName">
@@ -42,7 +57,7 @@
 				<rzslider class="custom-slider" rz-slider-model="percSlider.value"></rzslider> -->
 			
 				<div class="help-block">
-					<p ng-show="userForm.err">{{userForm.err_text}}</p>
+					<p ng-show="validation.err">{{validation.err_text}}</p>
 				</div>
 				<div class="buttons-wrapper">
 					<a href="" class="btn-simple btn-save btn-left" ng-click="saveColor()"></a>
@@ -51,6 +66,32 @@
 
 			</form>
 		</div>		
+	</div>
+
+	<div class="modal-wrapper" ng-class="{'active':(oxidModalOpened)}">
+		
+		<div class="modal-inner	">			
+			<form class="add-oxidant-form" name="oxidForm">	
+				<p>Вес (гр)</p>
+				<input type="number" name="oxidant-weight" style="display:none;" ng-model="oxidWeight.value">
+				<rzslider class="custom-slider" rz-slider-model="oxidWeight.value"></rzslider>
+
+				<p>%</p>
+				<input type="number" name="oxid-perc" nd-model="oxidPerc.value" style="display:none;">
+				<rzslider class="custom-slider" rz-slider-model="oxidPerc.value"></rzslider>
+			
+				<div class="help-block">
+					<p ng-show="validation.err">{{validation.err_text}}</p>
+				</div>
+				<div class="buttons-wrapper">
+					<a href="" class="btn-simple btn-save btn-left" ng-click="saveOxid()"></a>
+					<a href="" class="btn-simple btn-close btn-right" ng-click="closeModal()"></a>	
+				</div>
+
+			</form>
+		</div>		
+
+
 	</div>
 </div>
 	

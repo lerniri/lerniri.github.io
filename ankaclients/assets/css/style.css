@@ -118,7 +118,8 @@ form .form-section {
 .oxidant-info .chem-element {
   background-color: #61abec; }
 
-.color-info ul li {
+.color-info ul li,
+.oxidant-info ul li {
   display: inline-block;
   margin-right: 2px; }
 
@@ -765,12 +766,12 @@ form.add-client-form .main-info {
     width: 15%; }
 
 /* add-colouring-wrapper */
-.add-colouring-wrapper ul li.add-color,
-.add-colouring-wrapper div.add-oxidant {
+.add-colouring-wrapper .add-color,
+.add-colouring-wrapper .add-oxidant {
   opacity: .8;
   text-align: center; }
-  .add-colouring-wrapper ul li.add-color:after,
-  .add-colouring-wrapper div.add-oxidant:after {
+  .add-colouring-wrapper .add-color:after,
+  .add-colouring-wrapper .add-oxidant:after {
     position: absolute;
     content: "\f055";
     font-family: FontAwesome;
@@ -779,30 +780,32 @@ form.add-client-form .main-info {
     top: 13px;
     left: 33%; }
 
-.add-colouring-wrapper form.add-colouring-form {
+.add-colouring-wrapper form {
   width: 60%;
   min-width: 150px;
   margin: auto;
   padding: 10px 15px;
   background: #EC7161; }
-  .add-colouring-wrapper form.add-colouring-form input, .add-colouring-wrapper form.add-colouring-form select {
+  .add-colouring-wrapper form.add-oxidant-form {
+    background-color: #61abec; }
+  .add-colouring-wrapper form input, .add-colouring-wrapper form select {
     border: none;
     border-bottom: 1px solid lightgrey;
     background: transparent;
     margin-bottom: 15px; }
-  .add-colouring-wrapper form.add-colouring-form select.color-name * {
+  .add-colouring-wrapper form select.color-name * {
     background-color: #EC7161;
     color: white;
     border: none;
     border-bottom: 1px solid lightgrey; }
-  .add-colouring-wrapper form.add-colouring-form .btn-simple {
+  .add-colouring-wrapper form .btn-simple {
     position: absolute;
     bottom: 0; }
-  .add-colouring-wrapper form.add-colouring-form .btn-simple.btn-left {
+  .add-colouring-wrapper form .btn-simple.btn-left {
     left: 5px; }
-  .add-colouring-wrapper form.add-colouring-form .btn-simple.btn-right {
+  .add-colouring-wrapper form .btn-simple.btn-right {
     right: 5px; }
-  .add-colouring-wrapper form.add-colouring-form span.notification {
+  .add-colouring-wrapper form span.notification {
     padding: 5px;
     background: darkred;
     margin-top: 10px;

@@ -86,42 +86,84 @@ function clientEditController($scope, $route, $routeParams) {
 
 function colouringEditController($scope, $route, $routeParams) {
     $scope.client_name = clients[$routeParams.client_id].name;
-    $scope.modalOpened = false;
+    $scope.colModalOpened = false;
+    $scope.oxidModalOpened = false;
+    $scope.colors = [];
+    $scope.oxids = [];
+    
+
+    /* color*/
+    // $scope.colorInput = {
+    //   name: 'wella1',
+    //   num: '',
+    //   weight: {value:100, step: 1},       
+    // }
+
     $scope.colorName = 'wella1';
+    $scope.colorNum = '';
     $scope.colorWeight = {
+      value: 100,
+      step: 1};
+
+    /* oxid */
+    $scope.oxidWeight = {
       value: 100,
       step: 1
     }
-    $scope.userForm = {
+
+    $scope.oxidPerc = {
+      value:100,
+      step: 5
+    }
+
+    $scope.validation = {
       err: false,
       err_text: ""
     }
 
     /* functions */
     $scope.addColor = function() {
-      this.modalOpened =  true;
-      this.userForm.err = false;
-      this.userForm.err_text = "";
+
+
+      this.colModalOpened =  true;
+      this.validation.err = false;
+      this.validation.err_text = "";
+
+    }
+
+    $scope.addOxidant = function() {
+      this.oxidModalOpened =  true;
+      this.validation.err = false;
+      this.validation.err_text = "";
+      
     }
 
     $scope.saveColor = function() {
       //form validation 
       if ( isNaN(this.colorNum) ) {
-        this.userForm.err = true;
-        this.userForm.err_text = "Номер краски не заполнен";
+        this.validation.err = true;
+        this.validation.err_text = "Номер краски не заполнен";
+        return;
       }
+
+      this.colModalOpened = false;
+      var color = {name: this.colorName, num: this.colorNum, weight: this.colorWeight.value};
+      this.colors.push(color);
+    }
+
+    $scope.saveOxid = function() {
+      this.oxidModalOpened = false;
+      var oxid = {weight : this.oxidWeight.value, perc : this.oxidPerc.value}
+      this.oxids.push(oxid);
     }
 
     $scope.closeModal = function() {
-      this.modalOpened = false;
+      this.colModalOpened = false;
+      this.oxidModalOpened = false;
     }
-
-
-
 }
+
 /* filters */
-
-
 /* DATA */
 /* clients */
   var clients = [
@@ -174,18 +216,7 @@ function colouringEditController($scope, $route, $routeParams) {
 
   /* clients category */
   var categories = [
-  	// {
-  	// 	id:0,
-  	// 	name: "Друзья"
-  	// },
-  	// {
-  	// 	id:1,
-  	// 	name: "Родственники"
-  	// },
-  	// {
-  	// 	id:2,
-  	// 	name: "Знакомые"
-  	// }
+
   ];
 
   /* colouring */
@@ -217,31 +248,6 @@ function colouringEditController($scope, $route, $routeParams) {
   		}
 
   ];
-
-
- //  /* clients coloring */
-	// var coloring = [
-	// 	{
-	// 		clientid: 1,
-	// 		id:0,
-	// 		date: "2017-01-01",
-	// 		type: "Омбре",
-	// 		price: 800,
-	// 		coloringData: {
-	// 			oxid: {	name: "Oxilan" , perc: 10, weight_gr: 20 }, 
-	// 			color: [{ name: "Wella 1", num: 8.6, weight_gr: 40 },
-	// 				{ name: "Wella 2", num: 6, weight_gr: 30 }]
-	// 		}			
-	// 	},
-
-	// 	{
-	// 		clientid: 1,
-	// 		id:0,
-	// 		date: "2015-05-22",
-	// 		type: "Корни",
-	// 		price: 500
-	// 	}
-	// ];
 
 
 
@@ -294,7 +300,21 @@ function colouringEditController($scope, $route, $routeParams) {
  * @version 1.0.5
  * Copyright 2017. MIT licensed.
  */
+'use strict';
 
+function newColorBlock($compile) {
+
+	return {
+
+		restrict: 'E',
+		replace: true,
+		scope: {},
+		template: 
+			'<li class="chem-element add-color" ng-click="addColor()"></li>' 	
+	}
+
+
+}
 /*!
  * fastshell
  * Fiercely quick and opinionated front-ends
