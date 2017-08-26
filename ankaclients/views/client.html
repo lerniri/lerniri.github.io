@@ -58,7 +58,7 @@
 			    	<ul class="coloring-list">
 			    		<li ng-repeat="colouring in colourings | filter: {type: colouring} | orderBy: 'date'"><a href="#/colouring/{{colouring.id}}/{{client.name}}">
 			    			<p> {{colouring.type}} </p>
-			    			<span>{{colouring.date}}</span>		
+			    			<span>{{colouring.date |date:'dd MM yyyy'}}</span>		
 			    		</a></li>
 			    	</ul>
 

@@ -52,6 +52,7 @@ form input:not([type="image"]), form select, form textarea {
   display: block;
   border: none;
   border-bottom: 1px solid lightgrey;
+  background: transparent;
   height: 40px;
   width: 100%; }
   form input:not([type="image"]):focus, form select:focus, form textarea:focus {
@@ -85,6 +86,13 @@ form .form-section {
     .chem-element span.top {
       top: 5px;
       left: 5px; }
+    .chem-element span.center {
+      font-size: .7em;
+      white-space: nowrap;
+      overflow: hidden;
+      max-width: 45px;
+      top: 45%;
+      left: 10px; }
     .chem-element span.bottom {
       bottom: 5px;
       right: 5px; }
@@ -565,6 +573,7 @@ nav.subpage-topbar {
       height: 50px;
       border-radius: 40px;
       border: none;
+      background-color: white;
       padding: 5px 0 5px 50px;
       margin-bottom: 10px; }
   .header button {
@@ -780,37 +789,52 @@ form.add-client-form .main-info {
     top: 13px;
     left: 33%; }
 
-.add-colouring-wrapper form {
+.add-colouring-wrapper form.add-colouring-el-form {
   width: 60%;
   min-width: 150px;
   margin: auto;
   padding: 10px 15px;
   background: #EC7161; }
-  .add-colouring-wrapper form.add-oxidant-form {
+  .add-colouring-wrapper form.add-colouring-el-form.add-oxidant-form {
     background-color: #61abec; }
-  .add-colouring-wrapper form input, .add-colouring-wrapper form select {
+  .add-colouring-wrapper form.add-colouring-el-form input, .add-colouring-wrapper form.add-colouring-el-form select {
     border: none;
     border-bottom: 1px solid lightgrey;
     background: transparent;
     margin-bottom: 15px; }
-  .add-colouring-wrapper form select.color-name * {
+  .add-colouring-wrapper form.add-colouring-el-form select.color-name * {
     background-color: #EC7161;
     color: white;
     border: none;
     border-bottom: 1px solid lightgrey; }
-  .add-colouring-wrapper form .btn-simple {
+  .add-colouring-wrapper form.add-colouring-el-form .btn-simple {
     position: absolute;
     bottom: 0; }
-  .add-colouring-wrapper form .btn-simple.btn-left {
+  .add-colouring-wrapper form.add-colouring-el-form .btn-simple.btn-left {
     left: 5px; }
-  .add-colouring-wrapper form .btn-simple.btn-right {
+  .add-colouring-wrapper form.add-colouring-el-form .btn-simple.btn-right {
     right: 5px; }
-  .add-colouring-wrapper form span.notification {
+  .add-colouring-wrapper form.add-colouring-el-form span.notification {
     padding: 5px;
     background: darkred;
     margin-top: 10px;
     color: white;
     text-align: center; }
+
+.add-colouring-wrapper form#colouring-general {
+  padding: 10px; }
+  .add-colouring-wrapper form#colouring-general input:not([type=image]), .add-colouring-wrapper form#colouring-general select {
+    height: 50px;
+    background: white;
+    margin-bottom: 3px;
+    width: 150px;
+    float: right;
+    padding-left: 5px; }
+  .add-colouring-wrapper form#colouring-general input[type=image] {
+    height: 100px;
+    margin-bottom: 10px;
+    float: left;
+    border-radius: 50%; }
 
 .buttons-wrapper {
   position: relative;
@@ -868,6 +892,9 @@ a.btn-circle {
 
 .btn-home:after {
   content: "\f015"; }
+
+.btn-delete:after {
+  content: "\f014"; }
 
 ul {
   list-style-type: none;

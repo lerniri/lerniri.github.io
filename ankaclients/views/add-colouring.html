@@ -4,20 +4,33 @@
 		<h3 class="subpage-heading">НОВОЕ ОКРАШИВАНИЕ</h3>
 		<a href="#" class="btn-simple btn-back align-left"></a>
 		<h4>{{client_name}}</h4>
-		<a href="#/" class="btn-simple btn-save align-right"></a>
+		<a href="#/" class="btn-simple btn-save align-right" ng-click="saveColouring()"></a>
 	</nav>
 	<div class="subpage-content">
 
-		<!-- <input type="number" name="price"> -->
+		<form id="colouring-general" class="clearfix">
+
+			<input type="date" name="" ng-model="date">
+			<input type="image" name="" src="http://placehold.it/50/50" ng-model="img">
+			<input type="number" name="price" placeholder="Стоимость" ng-model="price">
+			<select ng-model="type">
+				<option ng-repeat="type in colouringTypes">{{type.name}}</option>
+			</select>	
+			
+		</form>
+		
 		<div class="color-info">
 			<span class="color-info-heading">Краска<i class="fa fa-paint-brush" aria-hidden="true"></i></span>
 			<ul>
+				<!-- @TODO: add to directive -->
 				<li class="chem-element" ng-repeat="color in colors">
 						<!-- <p><strong>Название краски: </strong>{{color.name}}</p> -->
 						<!-- <p><strong>№: </strong>{{color.color_num}}</p>
 						<p><strong>вес (гр): </strong>{{color.color_weight_g}}</p> -->
 						<span class="top">{{color.num}}N</span>
+						<span class="center">{{color.name}}</span>
 						<span class="bottom">{{color.weight|weight_g}}</span>
+						<a href="" class="btn-simple btn-delete" ng-click="removeColor()"></a>
 				</li>
 				<li class="chem-element add-color" ng-click="addColor()"></li> 				
 			</ul>
@@ -29,6 +42,7 @@
 				<li class="chem-element" ng-repeat="oxid in oxids">
 					<span class="top">{{oxid.perc}}%</span>
 					<span class="bottom">{{oxid.weight|weight_g }}</span>	
+					<a href="" class="btn-simple btn-delete" ng-click="removeOxid()"></a>
 				</li>
 				<li class="chem-element add-oxidant" ng-click="addOxidant()"></li>
 			</ul>
@@ -42,20 +56,16 @@
 	<!-- add color form  @TODO: move to directive -->
 	<div class="modal-wrapper" ng-class="{'active':(colModalOpened)}">
 		<div class="modal-inner	">			
-			<form class="add-colouring-form" name="colorForm">
+			<form class="add-colouring-form add-colouring-el-form" name="colorForm">
 				<select class="color-name" ng-model="colorName">
-					<option>wella1</option>
-					<option>wella2</option>
+					<option ng-repeat="colorType in colorTypes">{{colorType.name}}</option>
 				</select>
 				
 				<input type="number" name="color-number" ng-model="colorNum" placeholder="Номер краски" required>
 				<p>Вес (гр)</p>
-				<input type="number" name="color-weight" style="display:none;" ng-model="colorWeight.value">
+				<input type="hidden" name="color-weight" ng-model="colorWeight.value">
 				<rzslider class="custom-slider" rz-slider-model="colorWeight.value"></rzslider>
-				<!-- <p>%</p>
-				<input type="number" name="oxid-perc" style="display:none;" ng-model="percSlider.value">
-				<rzslider class="custom-slider" rz-slider-model="percSlider.value"></rzslider> -->
-			
+				
 				<div class="help-block">
 					<p ng-show="validation.err">{{validation.err_text}}</p>
 				</div>
@@ -71,14 +81,16 @@
 	<div class="modal-wrapper" ng-class="{'active':(oxidModalOpened)}">
 		
 		<div class="modal-inner	">			
-			<form class="add-oxidant-form" name="oxidForm">	
+			<form class="add-oxidant-form add-colouring-el-form" name="oxidForm">
+				<p>%</p>
+				<input type="number" name="oxid-perc" nd-model="oxidPerc.value" style="display:none;">
+				<rzslider class="custom-slider" rz-slider-model="oxidPerc.value"></rzslider>
+			
+
 				<p>Вес (гр)</p>
 				<input type="number" name="oxidant-weight" style="display:none;" ng-model="oxidWeight.value">
 				<rzslider class="custom-slider" rz-slider-model="oxidWeight.value"></rzslider>
 
-				<p>%</p>
-				<input type="number" name="oxid-perc" nd-model="oxidPerc.value" style="display:none;">
-				<rzslider class="custom-slider" rz-slider-model="oxidPerc.value"></rzslider>
 			
 				<div class="help-block">
 					<p ng-show="validation.err">{{validation.err_text}}</p>

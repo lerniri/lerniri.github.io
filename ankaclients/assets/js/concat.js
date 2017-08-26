@@ -86,20 +86,16 @@ function clientEditController($scope, $route, $routeParams) {
 
 function colouringEditController($scope, $route, $routeParams) {
     $scope.client_name = clients[$routeParams.client_id].name;
+    $scope.colourings = colourings;
+    $scope.colouringTypes = colouringTypes;
+    $scope.colorTypes = colorTypes;
     $scope.colModalOpened = false;
     $scope.oxidModalOpened = false;
     $scope.colors = [];
     $scope.oxids = [];
-    
+  
 
-    /* color*/
-    // $scope.colorInput = {
-    //   name: 'wella1',
-    //   num: '',
-    //   weight: {value:100, step: 1},       
-    // }
-
-    $scope.colorName = 'wella1';
+    $scope.colorName = colorTypes[0].name;
     $scope.colorNum = '';
     $scope.colorWeight = {
       value: 100,
@@ -112,8 +108,8 @@ function colouringEditController($scope, $route, $routeParams) {
     }
 
     $scope.oxidPerc = {
-      value:100,
-      step: 5
+      value:12,
+      step: 1
     }
 
     $scope.validation = {
@@ -140,7 +136,7 @@ function colouringEditController($scope, $route, $routeParams) {
 
     $scope.saveColor = function() {
       //form validation 
-      if ( isNaN(this.colorNum) ) {
+      if ( this.colorNum === '' ) {
         this.validation.err = true;
         this.validation.err_text = "Номер краски не заполнен";
         return;
@@ -151,15 +147,37 @@ function colouringEditController($scope, $route, $routeParams) {
       this.colors.push(color);
     }
 
+    $scope.removeColor = function() {
+      this.colors.splice(this.$index, 1);
+      // console.log();
+    }
+
     $scope.saveOxid = function() {
       this.oxidModalOpened = false;
       var oxid = {weight : this.oxidWeight.value, perc : this.oxidPerc.value}
       this.oxids.push(oxid);
     }
 
+    $scope.removeOxid = function() {
+      this.oxids.splice(this.$index, 1);
+    }
+
     $scope.closeModal = function() {
       this.colModalOpened = false;
       this.oxidModalOpened = false;
+    }
+
+    $scope.saveColouring = function() {
+      // construct  colouring 
+      var colouringToAdd = {
+          id: 3, 
+          client_id: this.client_id,
+          date: this.date,
+          type: this.type,
+          price: this.price
+
+      }
+      this.colourings.push(colouringToAdd);
     }
 }
 
@@ -219,6 +237,35 @@ function colouringEditController($scope, $route, $routeParams) {
 
   ];
 
+  var colouringTypes = [
+    {
+      name: 'Мелирование',
+      other: '' 
+    },
+
+    {
+      name:  'Корни',
+      other: ''
+    },
+    {
+      name: 'Омбре',
+      other: ''
+    }
+    
+  ];
+
+  var colorTypes = [
+    {
+      name: 'wella koleston perfect'
+    },
+    {
+      name: 'wella koleston perfect innosense'
+    },
+    {
+      name: 'olaplex'
+    }
+  ];
+
   /* colouring */
   var colourings = [
   		
@@ -242,9 +289,9 @@ function colouringEditController($scope, $route, $routeParams) {
   			id: 1,
   			client_id: 1,
   			date: "2015-05-22",
-			type: "Корни",
-			price: 300,
-			colouring_data: {}
+			  type: "Корни",
+			  price: 300,
+			  colouring_data: {}
   		}
 
   ];
