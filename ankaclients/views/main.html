@@ -11,19 +11,17 @@
 </header>
 
 <div class="main">
-    
-    <nav ng-controller="CategoryController as catCtrl">
-
-        <ul class="category-tabs-nav" ng-show="catCtrl.categories.length > 0">
-            <li ng-repeat="category in catCtrl.categories">{{category.name}}</li>
+    <nav>
+        <ul class="category-tabs-nav" ng-show="categories.length > 0">
+            <li ng-repeat="category in categories">{{category.name}}</li>
         </ul>
     </nav>
 
-    <div class="clients-list-wrapper" ng-controller="ClientsListController as clientsList">
+    <div class="clients-list-wrapper">
       
         <ul class="clients-list">             
-            <li class="client-item" ng-repeat="client in clientsList.clients | filter: {name: search} | orderBy: 'name'">
-              <a href="#/contact/{{client.id}}">                
+            <li class="client-item" ng-repeat="client in clients | filter: {name: search} | orderBy: 'name'">
+              <a href="#/client/{{client.id}}">                
                 <img ng-src="{{client.img}}">
                 <h1>{{client.name}}</h1>
                 <h5>{{client.tel}}</h5>
@@ -31,6 +29,4 @@
             </li>
         </ul>
     </div>
-
-
 </div>

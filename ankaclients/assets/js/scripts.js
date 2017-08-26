@@ -10,7 +10,7 @@
 
   'use strict';
 
-  var app = angular.module('AnkaApp', ['ngRoute', 'rzModule'])
+  var app = angular.module('clientApp', ['ngRoute', 'ngMessages', 'rzModule'])
 
   app.config(['$locationProvider', function($locationProvider) {
         $locationProvider.hashPrefix('');
@@ -45,41 +45,42 @@
 
   app.controller('ClientCardController', function($scope, $route, $routeParams){
   	this.client = clients[$routeParams.client_id];
+    
   });
 
-  app.controller('rangeController', function($scope){
-  	$scope.toneSlider = {
-  		value: 10, 
-  		step: 1,
-  		options:  {
-  			hideLimitLabels: true
-  		}
-  	}
+  // app.controller('rangeController', function($scope){
+  // 	$scope.toneSlider = {
+  // 		value: 10, 
+  // 		step: 1,
+  // 		options:  {
+  // 			hideLimitLabels: true
+  // 		}
+  // 	}
   	
-  	$scope.greySlider = {
-  		value: 100,
-  		step: 1,
-  		options:  {
-  			hideLimitLabels: true
-  		}
-  	}
+  // 	$scope.greySlider = {
+  // 		value: 100,
+  // 		step: 1,
+  // 		options:  {
+  // 			hideLimitLabels: true
+  // 		}
+  // 	}
 
-  	$scope.weightSlider = {
-  		value: 100,
-  		step:  1,
-  		options:  {
-  			hideLimitLabels: true
-  		}
-  	}
+  // 	$scope.weightSlider = {
+  // 		value: 100,
+  // 		step:  1,
+  // 		options:  {
+  // 			hideLimitLabels: true
+  // 		}
+  // 	}
 
-  	$scope.percSlider = {
-  		value: 100,
-  		step: 1,
-  		options: {
-  			hideLimitLabels:true
-  		}
-  	}
-  });
+  // 	$scope.percSlider = {
+  // 		value: 100,
+  // 		step: 1,
+  // 		options: {
+  // 			hideLimitLabels:true
+  // 		}
+  // 	}
+  // });
 
   app.controller('CategoryController', function(){
   		this.categories = categories;
@@ -105,25 +106,71 @@
   	this.colouring = colourings[$routeParams.colouring_id];
   	this.client_name = $routeParams.client_name;
 
+  });
 
+  app.controller('testController', function($scope){
 
-
+  	$scope.colorWeight = {
+  		value: 100,
+  		step: 1
+  	}
+  	
   });
 
   app.controller('AddColouringController', function($scope,$route,$routeParams){
-  	 this.client_name = clients[$routeParams.client_id].name;
+  
+  	$scope.client_name = clients[$routeParams.client_id].name;
+  	$scope.colorArr = [];
+
+  	$scope.err_text = "";
+  	
+  	$scope.colorName = 'wella1';
+
+  	$scope.сolorWeight = {
+  		value: 100,
+  		step:  1
+  	};
+
+  	 var self = this;
+
+  	 var modal = $('.modal-wrapper');
 
   	 $('.add-color').click(function(e){
-
-  	 	var colorList = $(".color-info ul");
-  	 	var colorBlock = $("<li class='chem-element edit-mode'><span class='top'>N</span><span class='bottom'></span></li>");
-  	 	colorList.prepend(colorBlock);
-
+  	 	// open modal 
+  	 	modal.addClass('active');
   	 });
 
-  	 $('.chem-element.edit-mode:after').click(function(e){
-  	 	this.removeElement();
+
+  	 // close button
+  	 modal.find('.btn-close').click(function(e){
+  	 	modal.removeClass('active');
   	 });
+	
+	 // save button
+	 modal.find('.btn-save').click(function(e){
+	 	var addColorForm = $('.add-colouring-form');
+	 	
+	 	//form validation 
+	 	if (addColorForm.find('input[name="color-number"]').val() === "") {
+	 		self.err_text = 'Укажите номер краски';
+	 		// err.removeClass('hidden');
+	 		return;
+	 	} 
+	 	// err.addClass('hidden');
+	 	var colorNumber = addColorForm.find('input[name="color-number"]').val();
+	 	var colorWeight = addColorForm.find('input[name="color-weight"]').val();
+
+	 	// create li.chem-element 
+	 	var colorList = $(".color-info ul");
+  	 	var colorBlock = $("<li class='chem-element edit-mode'><span class='top'>"+colorNumber+"</span><span class='bottom'>"+colorWeight+"</span><a class='btn-simple btn-close'></a></li>");
+  	 	var li = colorBlock.insertBefore('li.add-color');
+
+  	 	li.find('a.btn-close').click(function(e){
+  	 		$(this).parent().remove();
+  	 	})
+	 	modal.removeClass('active');
+	 })	; 	 
+  
 
   });
 

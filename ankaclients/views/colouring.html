@@ -1,11 +1,11 @@
-<div class="color-card-wrapper" ng-controller="ColorCardController as colorCtrl">
+<div class="color-card-wrapper">
 	
 	<nav class="subpage-topbar">
 		<h3 class="subpage-heading">ОКРАШИВАНИЯ</h3>
-		<a href="#!" class="btn-back align-left"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+		<a href="#!" class="btn-simple btn-back align-left"></a>
 		
-		<h4>{{colorCtrl.client_name}}</h4>
-		<a href="#!" class="btn-home align-right"><i class="fa fa-home" aria-hidden="true"></i></a>
+		<h4>{{client_name}}</h4>
+		<a href="#!" class="btn-simple btn-home align-right"></a>
 			
 	</nav>
 
@@ -13,9 +13,9 @@
 		<header class="color-header clearfix">
 		
 			<img src="http://unsplash.it/100/100">
-			<h1>{{colorCtrl.colouring.type}}</h1>
-			<span class="date">{{colorCtrl.colouring.date}}</span>
-			<span class="price">{{colorCtrl.colouring.price | currency: "NIS "}}</span>
+			<h1>{{colouring.type}}</h1>
+			<span class="date">{{colouring.date}}</span>
+			<span class="price">{{colouring.price | currency: "NIS "}}</span>
 
 			<a href="#!/color-edit" class="btn-edit-color btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 		</header>
@@ -25,7 +25,7 @@
 			<div class="color-info">
 				<span class="color-info-heading">Краска<i class="fa fa-paint-brush" aria-hidden="true"></i></span>
 				<ul>
-					<li class="chem-element" ng-repeat="color in colorCtrl.colouring.colouring_data.colors">
+					<li class="chem-element" ng-repeat="color in colouring.colouring_data.colors">
 						<!-- <p><strong>Название краски: </strong>{{color.name}}</p> -->
 						<!-- <p><strong>№: </strong>{{color.color_num}}</p>
 						<p><strong>вес (гр): </strong>{{color.color_weight_g}}</p> -->
@@ -44,8 +44,8 @@
 						{ name: "Wella 2", num: 6, weight_gr: 30 }]
 				}	 -->
 				<div class="chem-element">
-					<span class="top">{{colorCtrl.colouring.colouring_data.oxid_perc}}%</span>
-					<span class="bottom">{{colorCtrl.colouring.colouring_data.oxid_weight_g |weight_g }}</span>	
+					<span class="top">{{colouring.colouring_data.oxid_perc}}%</span>
+					<span class="bottom">{{colouring.colouring_data.oxid_weight_g |weight_g }}</span>	
 				</div>
 				
 			</div>

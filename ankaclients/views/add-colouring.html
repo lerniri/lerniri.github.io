@@ -1,9 +1,10 @@
-<div class="add-colouring-wrapper subpage-wrapper" ng-controller="AddColouringController as addColCtrl">
+<div class="add-colouring-wrapper subpage-wrapper">
+
 	<nav class="subpage-topbar">
 		<h3 class="subpage-heading">НОВОЕ ОКРАШИВАНИЕ</h3>
-		<a href="#" class="btn-back align-left"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-		<h4>{{addColCtrl.client_name}}</h4>
-		<a href="#/" class="btn-save align-right"><i class="fa fa-check" aria-hidden="true"></i></a>
+		<a href="#" class="btn-simple btn-back align-left"></a>
+		<h4>{{client_name}}</h4>
+		<a href="#/" class="btn-simple btn-save align-right"></a>
 	</nav>
 	<div class="subpage-content">
 
@@ -11,38 +12,45 @@
 		<div class="color-info">
 			<span class="color-info-heading">Краска<i class="fa fa-paint-brush" aria-hidden="true"></i></span>
 			<ul>
-				<li class="chem-element add-color"></li> 				
+				<li class="chem-element add-color" ng-click="addColor()"></li> 				
 			</ul>
 		</div>
 
 		<div class="oxidant-info">
 			<span class="oxidant-info-heading">Окислитель<i class="fa fa-flask" aria-hidden="true"></i></span>
-			<div class="chem-element add-oxidant"></div>	
+			<div class="chem-element add-oxidant" ng-click="addOxidant()"></div>	
 		</div>		
 
 
 	</div>	
 
-	<div class="modal-wrapper">
+	<!-- add color form -->
+	<div class="modal-wrapper" ng-class="{'active':(modalOpened)}">
 		<div class="modal-inner	">			
-			<form class="add-colouring-form">
-
-				<select class="color-name">
+			<form class="add-colouring-form" name="colorForm">
+				<select class="color-name" ng-model="colorName">
 					<option>wella1</option>
 					<option>wella2</option>
 				</select>
-
-				<div ng-controller="rangeController">
-					<input type="number" name="color-number" placeholder="Номер краски">
-					<p>Вес (гр)</p>
-					<rzslider class="custom-slider" rz-slider-model="weightSlider.value"></rzslider>
-					<p>%</p>
-					<rzslider class="custom-slider" rz-slider-model="percSlider.value"></rzslider>
+				
+				<input type="number" name="color-number" ng-model="colorNum" placeholder="Номер краски" required>
+				<p>Вес (гр)</p>
+				<input type="number" name="color-weight" style="display:none;" ng-model="colorWeight.value">
+				<rzslider class="custom-slider" rz-slider-model="colorWeight.value"></rzslider>
+				<!-- <p>%</p>
+				<input type="number" name="oxid-perc" style="display:none;" ng-model="percSlider.value">
+				<rzslider class="custom-slider" rz-slider-model="percSlider.value"></rzslider> -->
+			
+				<div class="help-block">
+					<p ng-show="userForm.err">{{userForm.err_text}}</p>
 				</div>
-				<a href="" class="btn-circle btn-add"></a>
+				<div class="buttons-wrapper">
+					<a href="" class="btn-simple btn-save btn-left" ng-click="saveColor()"></a>
+					<a href="" class="btn-simple btn-close btn-right" ng-click="closeModal()"></a>	
+				</div>
+
 			</form>
 		</div>		
 	</div>
-
 </div>
-
+	

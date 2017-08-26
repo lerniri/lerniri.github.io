@@ -1,3 +1,4 @@
+/* BUTTONS */
 .clear:before, .clear:after {
   content: ' ';
   display: table; }
@@ -24,13 +25,17 @@ body, html {
   height: 100%;
   background: #F7F7F7; }
 
+.hidden {
+  display: none; }
+
 .app-wrapper {
   width: 100%;
   height: 100%;
   background: #F7F7F7; }
 
 .subpage-content {
-  padding: 60px 15px 0 15px; }
+  padding: 60px 15px 0 15px;
+  height: 100%; }
 
 .no-opacity {
   opacity: 0; }
@@ -83,14 +88,11 @@ form .form-section {
     .chem-element span.bottom {
       bottom: 5px;
       right: 5px; }
-  .chem-element.edit-mode:after {
-    content: "\f056";
-    font-family: FontAwesome;
-    font-size: 1.5em;
+  .chem-element a.btn-simple {
     position: absolute;
-    color: white;
-    right: 5px;
-    top: 2px; }
+    right: 5px; }
+  .chem-element.edit-mode a.btn-simple {
+    visibility: visible; }
 
 .oxidant-info,
 .color-info {
@@ -128,9 +130,11 @@ form .form-section {
   height: 100%;
   top: 0;
   display: table;
-  opacity: 1; }
+  opacity: 0;
+  z-index: -999; }
   .modal-wrapper.active {
-    opacity: 1; }
+    opacity: 1;
+    z-index: 9999; }
   .modal-wrapper .modal-inner {
     display: table-cell;
     vertical-align: middle; }
@@ -791,6 +795,23 @@ form.add-client-form .main-info {
     color: white;
     border: none;
     border-bottom: 1px solid lightgrey; }
+  .add-colouring-wrapper form.add-colouring-form .btn-simple {
+    position: absolute;
+    bottom: 0; }
+  .add-colouring-wrapper form.add-colouring-form .btn-simple.btn-left {
+    left: 5px; }
+  .add-colouring-wrapper form.add-colouring-form .btn-simple.btn-right {
+    right: 5px; }
+  .add-colouring-wrapper form.add-colouring-form span.notification {
+    padding: 5px;
+    background: darkred;
+    margin-top: 10px;
+    color: white;
+    text-align: center; }
+
+.buttons-wrapper {
+  position: relative;
+  height: 30px; }
 
 a.btn-add-colouring,
 a.btn-circle {
@@ -816,6 +837,15 @@ a.btn-circle {
   a.btn-add-colouring.btn-center,
   a.btn-circle.btn-center {
     margin: auto; }
+  a.btn-add-colouring.btn-left,
+  a.btn-circle.btn-left {
+    margin: 0 auto 0 0; }
+
+.btn-simple {
+  font-family: FontAwesome;
+  font-size: 1.5em; }
+  .btn-simple:after {
+    color: white; }
 
 /* */
 .btn-add:after {
@@ -827,8 +857,14 @@ a.btn-circle {
 .btn-save:after {
   content: "\f00c"; }
 
-.btn-delete:after {
+.btn-close:after {
   content: "\f00d"; }
+
+.btn-back:after {
+  content: "\f053"; }
+
+.btn-home:after {
+  content: "\f015"; }
 
 ul {
   list-style-type: none;

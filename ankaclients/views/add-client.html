@@ -2,8 +2,8 @@
 
 	<nav class="subpage-topbar">
 		<h2 class="subpage-heading">НОВЫЙ КЛИЕНТ</h2>
-		<a href="#" class="btn-back align-left"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-		<a href="#/" class="btn-save align-right"><i class="fa fa-check" aria-hidden="true"></i></a>	
+		<a href="#" class="btn-simple btn-back align-left"></a>
+		<a href="#/" class="btn-simple btn-save align-right" ng-click="saveContact()"></a>	
 	</nav>
 
 
@@ -11,9 +11,9 @@
 			<form class="add-client-form">
 
 				<div class="main-info clearfix">
-					<input class="avatar" type="image" name="image" src="http://via.placeholder.com/50x50">
-					<input class="name" type="text" name="name" placeholder="Имя" required>
-					<select class="sex">
+					<input class="avatar" type="image" name="image" src="http://via.placeholder.com/50x50" ng-model="client.img">
+					<input class="name" type="text" name="name" placeholder="Имя" ng-model="client.name" required>
+					<select class="sex" ng-model="client.sex">
 						<option value="male">М</option>
 						<option value="female">Ж</option>
 						<option value="other">-</option>
@@ -23,20 +23,21 @@
 
 				<div class="form-section">
 					<h4>Контактные данные</h4>
-					<input type="phone" name="phone" placeholder="+9 999 999 99 99">
-					<input type="email" name="email" placeholder="example@example.com">
-					<input type="text" name="address" placeholder="Адрес">
-					<input type="text" name="fb_page" placeholder="Facebook URL">
-	
+					<input type="phone" name="phone" placeholder="+9 999 999 99 99" ng-model="client.phone">
+					<input type="email" name="email" placeholder="example@example.com" ng-model="client.email">
+					<input type="text" name="address" placeholder="Адрес" ng-model="client.address">
+					<input type="text" name="fb_page" placeholder="Facebook URL" ng-model="client.fb_page">
 				</div>
 				
 
-				<div class="form-section" ng-controller="rangeController">
+				<div class="form-section">
 					<h4>Информация о волосах</h4>
 					<p>Натуральный тон</p>
+					<input type="hidden" name="tone" ng-model="client.natural_tone">
 					<rzslider class="custom-slider" rz-slider-model="toneSlider.value"></rzslider>
 
 					<p>% седины</p>
+					<input type="hidden" name="grey_perc" ng-model="client.prey_perc">
 					<rzslider class="custom-slider" rz-slider-model="greySlider.value"></rzslider>
 
 					<a href="#/add-colouring" class="btn-add-colouring"><i class="fa fa-paint-brush" aria-hidden="true"></i></a>
@@ -45,7 +46,7 @@
 				
 				<div class="form-section">
 					<h4>Другое</h4>
-					<textarea>Пиши, что хочешь...</textarea>
+					<textarea ng-model="client.other">Пиши, что хочешь...</textarea>
 	
 				</div>
 				
